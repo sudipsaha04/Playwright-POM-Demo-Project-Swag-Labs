@@ -16,6 +16,9 @@ The application under test is **https://www.saucedemo.com/**.
 
 ## Project Structure
 
+# PLAYWRIGHT-POM-AUTOMATION Project Structure
+
+```bash
 PLAYWRIGHT-POM-AUTOMATION/
   cart/
     cartactions.js          # getProductNames(), getProductPrices(), checkout()
@@ -30,14 +33,16 @@ PLAYWRIGHT-POM-AUTOMATION/
     productsactions.js      # resetAppState(), logout(), logoutAfterReset(), addItems(count), sortZtoA(), addFirstItem(), goToCart()
     productsobjects.js      # menuButton, resetApp, logout, filter, addToCartBtn, cartIcon
   specs/
-    LockedUser.spec.js      # Ques 1: "Locked out user verify"
-    StanderdUser.spec.js    # Ques 2: "Standard user checkout process"
-    PerformanceUser.spec.js # Ques 3: "Performance glitch user checkout process"
+    LockedUser.spec.js      # test: "Locked out user verify"
+    StanderdUser.spec.js    # test: "Standard user checkout process"
+    PerformanceUser.spec.js # test: "Performance glitch user checkout process"
   playwright.config.js
   package.json
   package-lock.json
   .gitignore
   README.md
+
+```
 
 
 For Executing in Terminal 
