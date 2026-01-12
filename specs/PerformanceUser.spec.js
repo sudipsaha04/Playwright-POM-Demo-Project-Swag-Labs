@@ -10,7 +10,7 @@ const passwordInput = "secret_sauce";
 test.describe("Question 03 ", () => {
 
 
-  let login, products, cart, checkout, productNames, totalPrice, successMsg;
+  let login, products, cart, checkout, productNames;
   let firstName = 'Sudip';
   let lastName = 'Saha';
   let zip = '1270';
@@ -30,25 +30,38 @@ test.describe("Question 03 ", () => {
     await products.resetAppState();
     await products.sortZtoA();
     await products.addFirstItem();
+    //await page.pause(3000);
     await products.goToCart();
+    //await page.waitForTimeout(5000); //freeze wait
 
     productNames = await cart.getProductNames();
-    expect(productNames.length).toBe(1);
+    const actualProductNames =productNames.length;
+    const expectedProductNames = 1;
+    expect(expectedProductNames).toBe(actualProductNames);
+    //await page.waitForTimeout(5000);
 
     await cart.checkout();
     await checkout.fillCheckoutInfo(firstName, lastName, zip);
 
-    totalPrice = await checkout.getTotalPrice();
-    expect(totalPrice).toContain('Total');
+    const expectedPrice = "Total";
+    const actualPrice = await checkout.getTotalPrice();
+    expect(actualPrice).toContain(expectedPrice);
     await checkout.finishOrder();
 
-
-    successMsg = await checkout.getSuccessMessage();
-    expect(successMsg).toBe('Thank you for your order!');
+    //await page.waitForTimeout(5000);
+    const expectedMsg = "Thank you for your order!";
+    const actualMSg = await checkout.getSuccessMessage();
+    expect(expectedMsg).toBe(actualMSg);
 
     await products.resetAppState();
+    //await page.waitForTimeout(5000);
+ 
     await products.logoutAfterReset();
   });
 
 });
+
+
+
+
 
