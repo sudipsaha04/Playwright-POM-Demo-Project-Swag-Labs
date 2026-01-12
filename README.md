@@ -49,6 +49,12 @@ For Executing in Terminal
 
 ```bash
 npm install
+npm init
+npm init playwright@latest
+npx playwright test  
+npx playwright test --headed #for browser run
+npm run test
+npx playwright show-report
 npx allure generate ./allure-results -o ./allure-report --clean
 npx allure open ./allure-report
 ```

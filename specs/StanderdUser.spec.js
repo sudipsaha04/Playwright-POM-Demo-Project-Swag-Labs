@@ -33,22 +33,30 @@ test.describe("Question 02 ", () => {
     await products.goToCart();
 
     productNames = await cart.getProductNames();
-    expect(productNames.length).toBe(3);
+    const actualProductNames =productNames.length;
+    const expectedProductNames = 3;
+    expect(expectedProductNames).toBe(actualProductNames);
+    //await page.waitForTimeout(5000);
+    
 
 
     await cart.checkout();
 
     await checkout.fillCheckoutInfo(firstName, lastName, zip);
 
-    totalPrice = await checkout.getTotalPrice();
-    expect(totalPrice).toContain('Total');
-
+    const expectedPrice = "Total";
+    const actualPrice = await checkout.getTotalPrice();
+    expect(actualPrice).toContain(expectedPrice);
     await checkout.finishOrder();
 
-    successMsg = await checkout.getSuccessMessage();
-    expect(successMsg).toBe('Thank you for your order!');
+    //await page.waitForTimeout(5000);
+    const expectedMsg = "Thank you for your order!";
+    const actualMSg = await checkout.getSuccessMessage();
+    expect(expectedMsg).toBe(actualMSg);
 
     await products.resetAppState();
+    //await page.waitForTimeout(5000);
+ 
     await products.logoutAfterReset();
   });
 });
