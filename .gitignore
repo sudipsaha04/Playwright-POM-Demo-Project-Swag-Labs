@@ -9,5 +9,4 @@ node_modules/
 /allure-report/
 /allure-results/
 
-
 await page.waitForEvent({setTimeout(() => {}, 3000);})  --> explicit wait

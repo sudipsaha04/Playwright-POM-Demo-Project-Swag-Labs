@@ -23,7 +23,6 @@ test.describe("Question 03 ", () => {
   });
   test('Performance glitch user checkout process', async ({ page }) => {
 
-
     await page.goto('https://www.saucedemo.com/');
     await login.loginUser(usernameInput, passwordInput);
 

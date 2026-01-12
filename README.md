@@ -44,7 +44,6 @@ PLAYWRIGHT-POM-AUTOMATION/
 
 ```
 
-
 For Executing in Terminal 
 
 ```bash

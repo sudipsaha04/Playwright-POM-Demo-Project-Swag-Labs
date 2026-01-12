@@ -38,8 +38,6 @@ test.describe("Question 02 ", () => {
     expect(expectedProductNames).toBe(actualProductNames);
     //await page.waitForTimeout(5000);
     
-
-
     await cart.checkout();
 
     await checkout.fillCheckoutInfo(firstName, lastName, zip);
